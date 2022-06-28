@@ -55,7 +55,9 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
 
 
             magazin.ClientIntra(); 
+
             magazin.SchimbareParolaMagazin("0000", "9999");
+
             Console.WriteLine("Vindeti bec(1), TV(2) sau telefon(3)?\n" +
                     "Tastati numarul corespunzator produsului dorit:");
             int raspuns = int.Parse(Console.ReadLine());
@@ -67,16 +69,113 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
             switch (raspuns)
             {
                 case 1:
-                    magazin.VanzareBecuri(magazin);
+                    VanzareBecuriMain(magazin);
                     break;
                 case 2:
-                    magazin.VanzareTV(magazin);
+                    VanzareTVMain(magazin);
                     break;
                 default:
-                    magazin.VanzareTelefon(magazin);
+                    VanzareTelefonMain(magazin);
                     break;
             }
+
+
             magazin.ClientIese();
+        }
+
+        public static void VanzareBecuriMain(Magazin magazin)
+        {
+            Console.WriteLine($"Sunt {magazin.GetNumarBecuri()} becuri in stoc.\n" +
+                $"Cate becuri doriti sa vindeti?");
+            int becuri = int.Parse(Console.ReadLine());
+            char exit = ' ';
+            while (magazin.GetNumarBecuri() < becuri)
+            {
+                Console.WriteLine("Ati introdus mai multe becuri decat sunt in stoc.\n" +
+                    "Doriti sa introdueti din nou numarul de becuri? y/n");
+                exit = Console.ReadKey().KeyChar;
+                if (exit == 'n')
+                {
+                    break;
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Sunt {magazin.GetNumarBecuri()} becuri in stoc.\n" +
+                $"Cate becuri doriti sa cumparati?");
+                becuri = int.Parse(Console.ReadLine());
+            }
+            if (exit == 'n')
+            {
+                return;
+            }
+            magazin.VanzareBecuri(magazin, becuri);
+        }
+        public static void VanzareTVMain(Magazin magazin)
+        {
+            Console.WriteLine("Alegeti din urmatoarele modele\n" +
+                "Samsung SA55(1)\n" +
+                "LG 30LG(2)\n" +
+                "Nei N45(3)\n" +
+                "Philips PH35(4)\n" +
+               "Tastati numarul corespunzator produsului dorit:");
+            TV tv = new TV("empty", "empty"); ;
+            int raspuns = int.Parse(Console.ReadLine());
+            while (raspuns < 1 || raspuns > 4)
+            {
+                Console.WriteLine("Input gresit!");
+                raspuns = int.Parse(Console.ReadLine());
+            }
+
+            if (raspuns == 1)
+            {
+                tv = new TVSamsungSA55();
+            }
+            if (raspuns == 2)
+            {
+                tv = new TVLG30();
+            }
+            if (raspuns == 3)
+            {
+                tv = new TVNeiN45();
+            }
+            if (raspuns == 4)
+            {
+                tv = new TVPhilipsPH35();
+            }
+            magazin.VanzareTV(magazin, tv);
+        }
+        public static void VanzareTelefonMain(Magazin magazin)
+        {
+            Console.WriteLine("Alegeti din urmatoarele modele\n" +
+               "Samsung S10(1)\n" +
+               "iPhone 10(2)\n" +
+               "Oneplus N10(3)\n" +
+               "Nokia 3310(4)\n" +
+              "Tastati numarul corespunzator produsului dorit:");
+            Telefon telefon = new Telefon("empty", "empty");
+            int raspuns = int.Parse(Console.ReadLine());
+            while (raspuns < 1 || raspuns > 4)
+            {
+                Console.WriteLine("Input gresit!");
+                raspuns = int.Parse(Console.ReadLine());
+            }
+
+            if (raspuns == 1)
+            {
+                telefon = new TelefonSamsungS10();
+            }
+            if (raspuns == 2)
+            {
+                telefon = new TelefoniPhone10();
+            }
+            if (raspuns == 3)
+            {
+                telefon = new TelefonOneplusN10();
+            }
+            if (raspuns == 4)
+            {
+                telefon = new TelefonNokia3310();
+            }
+            magazin.VanzareTelefon(magazin, telefon);
         }
     }
 }
