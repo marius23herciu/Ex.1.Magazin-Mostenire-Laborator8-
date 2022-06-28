@@ -45,11 +45,11 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
             if (this.parolaAutomata == parolaVeche)
             {
                 this.parolaAutomata = parolaNoua;
-            }
-            foreach (Telefon telefon in this.listaTelefoane)
-            {
-                parolaVeche = telefon.GetParola();
-                telefon.SchimbaParola(parolaVeche, parolaNoua);
+                foreach (Telefon telefon in this.listaTelefoane)
+                {
+                    parolaVeche = telefon.GetParola();
+                    telefon.SchimbaParola(parolaVeche, parolaNoua);
+                }
             }
         }
 
