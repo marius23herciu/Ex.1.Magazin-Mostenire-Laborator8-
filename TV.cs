@@ -12,7 +12,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
           în consolă, menționând modelul și producătorul.
           • Va avea o metodă care va opri televizorul și va confirma acest lucru în consolă*/
 
-        private int pret = 1000;
+        private int pret;
         private string model;
         private string producator;
         private bool pornit = false;
@@ -28,10 +28,11 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
         /// </summary>
         /// <param name="producator"></param>
         /// <param name="model"></param>
-        public TV(string producator, string model)
+        public TV(string producator, string model, int pret)
         {
             this.producator = producator;
             this.model = model;
+            this.pret = pret;
         }
 
         /// <summary>
@@ -85,25 +86,25 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
     }
     class TVSamsungSA55 : TV
     {
-        public TVSamsungSA55() : base("Samsung", "SA55")
+        public TVSamsungSA55() : base("Samsung", "SA55", 1000)
         {
         }
     }
     class TVLG30 : TV
     {
-        public TVLG30() : base("LG", "30")
+        public TVLG30() : base("LG", "30",1200)
         {
         }
     }
     class TVNeiN45 : TV
     {
-        public TVNeiN45() : base("Nei", "N45")
+        public TVNeiN45() : base("Nei", "N45",900)
         {
         }
     }
     class TVPhilipsPH35 : TV
     {
-        public TVPhilipsPH35() : base("Philips", "PH35")
+        public TVPhilipsPH35() : base("Philips", "PH35",1500)
         {
 
         }

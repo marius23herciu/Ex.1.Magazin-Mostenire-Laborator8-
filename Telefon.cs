@@ -31,7 +31,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
 
 
 
-        private int pret = 1700;
+        private int pret;
         private string producator;
         private string model;
         private bool blocat = true;
@@ -43,10 +43,11 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
         /// </summary>
         /// <param name="producator"></param>
         /// <param name="model"></param>
-        public Telefon(string producator, string model)
+        public Telefon(string producator, string model, int pret)
         {
             this.producator = producator;
             this.model = model;
+            this.pret = pret;
         }
         /// <summary>
         /// Schimba parola unui telefon daca parola veche este parola actuala.
@@ -143,28 +144,28 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
     }
     class TelefonSamsungS10 : Telefon
     {
-        public TelefonSamsungS10() : base("Samsung", "S10")
+        public TelefonSamsungS10() : base("Samsung", "S10",1700)
         {
 
         }
     }
     class TelefoniPhone10 : Telefon
     {
-        public TelefoniPhone10() : base("iPhone", "10")
+        public TelefoniPhone10() : base("iPhone", "10",2000)
         {
 
         }
     }
     class TelefonOneplusN10 : Telefon
     {
-        public TelefonOneplusN10() : base("OnePlus", "N10")
+        public TelefonOneplusN10() : base("OnePlus", "N10",1300)
         {
 
         }
     }
     class TelefonNokia3310 : Telefon
     {
-        public TelefonNokia3310() : base("Nokia", "3310")
+        public TelefonNokia3310() : base("Nokia", "3310",3000)
         {
 
         }

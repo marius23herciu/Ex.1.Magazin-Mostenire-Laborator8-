@@ -75,7 +75,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
                     }
                     break;
                 case 2:
-                    TV tv = AlegereTipTV(magazin);
+                    TV tv = AlegereTipTV();
                     Console.WriteLine($"Cate televizoare {tv.GetProducator()} {tv.GetModel()} doriti sa adaugati?");
                     raspuns = int.Parse(Console.ReadLine());
                     for (int i = 0; i < raspuns; i++)
@@ -84,7 +84,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
                     }
                     break;
                 default:
-                    Telefon telefon = AlegereTipTelefon(magazin);
+                    Telefon telefon = AlegereTipTelefon();
                     Console.WriteLine($"Cate telefoane {telefon.GetProducator()} {telefon.GetModel()} doriti sa adaugati?");
                     raspuns = int.Parse(Console.ReadLine());
                     for (int i = 0; i < raspuns; i++)
@@ -95,12 +95,12 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
             }
             ///////////////////////////////////////////////////////
 
-            magazin.ClientIntra(); 
+            magazin.ClientIntra();
 
             magazin.SchimbareParolaMagazin("0000", "9999");
 
             //////////Meniu Vanzari/////////////////////////////////
-            
+
             Console.WriteLine("Vindeti bec(1), TV(2) sau telefon(3)?\n" +
                     "Tastati numarul corespunzator produsului dorit:");
             raspuns = int.Parse(Console.ReadLine());
@@ -115,11 +115,11 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
                     VanzareBecuriMain(magazin);
                     break;
                 case 2:
-                    TV tv = AlegereTipTV(magazin);
+                    TV tv = AlegereTipTV();
                     magazin.VanzareTV(magazin, tv);
                     break;
                 default:
-                    Telefon telefon = AlegereTipTelefon(magazin);
+                    Telefon telefon = AlegereTipTelefon();
                     magazin.VanzareTelefon(magazin, telefon);
                     break;
             }
@@ -154,7 +154,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
             }
             magazin.VanzareBecuri(magazin, becuri);
         }
-        public static TV AlegereTipTV(Magazin magazin)
+        public static TV AlegereTipTV()
         {
             Console.WriteLine("Alegeti din urmatoarele modele\n" +
                 "Samsung SA55(1)\n" +
@@ -162,7 +162,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
                 "Nei N45(3)\n" +
                 "Philips PH35(4)\n" +
                "Tastati numarul corespunzator produsului dorit:");
-            TV tv = new TV("empty", "empty"); ;
+            TV tv = new TV("empty", "empty", 0); ;
             int raspuns = int.Parse(Console.ReadLine());
             while (raspuns < 1 || raspuns > 4)
             {
@@ -188,8 +188,8 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
             }
             return tv;
         }
-        
-        public static Telefon AlegereTipTelefon (Magazin magazin)
+
+        public static Telefon AlegereTipTelefon()
         {
             Console.WriteLine("Alegeti din urmatoarele modele\n" +
                "Samsung S10(1)\n" +
@@ -197,7 +197,7 @@ namespace Ex._1.Magazin_Mostenire__Laborator8_
                "Oneplus N10(3)\n" +
                "Nokia 3310(4)\n" +
               "Tastati numarul corespunzator produsului dorit:");
-            Telefon telefon = new Telefon("empty", "empty");
+            Telefon telefon = new Telefon("empty", "empty", 0);
             int raspuns = int.Parse(Console.ReadLine());
             while (raspuns < 1 || raspuns > 4)
             {
